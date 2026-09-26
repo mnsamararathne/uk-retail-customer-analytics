@@ -1,0 +1,70 @@
+Segment,Country,Revenue,Orders,Customers,Units
+Segment 0,Australia,2536.51,9,3,1229
+Segment 0,Austria,3803.19,8,5,1727
+Segment 0,Bahrain,548.4,2,2,260
+Segment 0,Belgium,3678.38,15,8,1204
+Segment 0,Canada,726.3399999999999,3,3,644
+Segment 0,Channel Islands,4837.92,8,4,2232
+Segment 0,Cyprus,1396.82,4,3,548
+Segment 0,Czech Republic,826.74,2,1,671
+Segment 0,Denmark,1872.81,5,4,1380
+Segment 0,Finland,8647.38,20,7,4362
+Segment 0,France,15589.53,58,35,8101
+Segment 0,Germany,17472.170000000002,64,36,9293
+Segment 0,Greece,387.31,1,1,289
+Segment 0,Israel,132.18,2,1,96
+Segment 0,Italy,2944.27,9,7,1757
+Segment 0,Japan,12976.24,10,6,8114
+Segment 0,Lithuania,1661.06,4,1,652
+Segment 0,Netherlands,1500.6100000000001,7,5,842
+Segment 0,Norway,1099.81,3,3,525
+Segment 0,Poland,974.0,4,3,314
+Segment 0,Portugal,3430.29,13,8,1467
+Segment 0,Saudi Arabia,145.92,1,1,80
+Segment 0,Spain,20585.39,24,14,8336
+Segment 0,Sweden,1015.36,3,3,465
+Segment 0,Switzerland,2327.8,8,4,902
+Segment 0,USA,653.91,2,2,333
+Segment 0,United Arab Emirates,889.24,1,1,496
+Segment 0,United Kingdom,1262139.592,3388,1837,762669
+Segment 0,Unspecified,1082.18,4,2,738
+Segment 1,Australia,124914.53,21,1,77374
+Segment 1,EIRE,143711.17,201,1,80240
+Segment 1,Netherlands,280206.02,73,1,196915
+Segment 1,United Kingdom,454048.09,106,2,134097
+Segment 2,Australia,11002.77,27,5,5288
+Segment 2,Austria,6395.49,9,6,3154
+Segment 2,Belgium,37517.96,83,17,22033
+Segment 2,Brazil,1143.6,1,1,356
+Segment 2,Canada,2940.04,3,1,2119
+Segment 2,Channel Islands,15602.62,18,5,7253
+Segment 2,Cyprus,12106.03,12,5,5792
+Segment 2,Denmark,17082.53,13,5,6855
+Segment 2,EIRE,4341.21,4,1,2125
+Segment 2,European Community,1300.25,4,1,499
+Segment 2,Finland,13898.7,21,5,6342
+Segment 2,France,193344.78,331,52,103327
+Segment 2,Germany,211206.23,393,58,109861
+Segment 2,Greece,4373.21,4,3,1268
+Segment 2,Iceland,4310.0,7,1,2458
+Segment 2,Israel,7083.66,3,2,3947
+Segment 2,Italy,14538.97,29,7,6355
+Segment 2,Japan,24440.13,9,2,17902
+Segment 2,Lebanon,1693.88,1,1,386
+Segment 2,Malta,2725.59,5,2,970
+Segment 2,Netherlands,3739.71,14,3,2604
+Segment 2,Norway,35065.63,33,7,18811
+Segment 2,Poland,6360.65,15,3,3370
+Segment 2,Portugal,29945.55,44,11,14628
+Segment 2,RSA,1002.3100000000001,1,1,351
+Segment 2,Singapore,21279.29,7,1,5241
+Segment 2,Spain,40973.17,66,16,19597
+Segment 2,Sweden,5445.65,18,4,2865
+Segment 2,Switzerland,54116.15,43,17,29180
+Segment 2,USA,2926.48,3,2,2125
+Segment 2,United Arab Emirates,1013.04,2,1,486
+Segment 2,United Kingdom,4407983.802,11893,2056,2579900
+Segment 2,Unspecified,1578.59,4,2,1047
+Segment 3,EIRE,117210.08,55,1,57768
+Segment 3,Sweden,31906.82,15,1,32748
+Segment 3,United Kingdom,1160853.16,1259,25,764639
