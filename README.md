@@ -1,417 +1,752 @@
-# uk-retail-customer-analytics
+# UK Retail Customer Analytics
 
-An end-to-end data science portfolio project exploring UK online retail transaction data using Python, Pandas, NumPy, Matplotlib, Seaborn and Scikit-learn.
+An end-to-end data analytics and customer segmentation portfolio project using the **UCI Online Retail Dataset** to investigate sales performance, customer behaviour, product performance, geographic patterns, cancellations, and customer segments.
 
-The project demonstrates a structured data science workflow covering data cleaning, exploratory data analysis (EDA), statistical visualisation, time-series analysis, customer behaviour analysis, RFM segmentation, clustering, PCA and machine-learning visualisation.
+The project demonstrates a complete analytical workflow using **Python, Pandas, NumPy, Matplotlib, Seaborn, Scikit-learn, and Streamlit**, progressing from raw-data understanding and cleaning through feature engineering, exploratory analysis, RFM analysis, customer segmentation, business KPI analysis, and interactive dashboard development.
 
-====Project Objective===
+---
 
-Online retailers generate large volumes of transactional data, but converting these records into meaningful customer and business insights requires systematic analysis and effective visualisation.
+## Project Objectives
 
-This project investigates purchasing behaviour, sales patterns, product performance and customer characteristics within an online retail dataset.
+Online retailers generate large volumes of transactional data, but raw transaction records alone provide limited support for business decision-making.
 
-The primary objective is to demonstrate how exploratory, statistical and machine-learning visualisation techniques can transform transactional data into interpretable and actionable insights.
+This project aims to transform retail transaction data into meaningful and interpretable insights by examining:
 
-====Research Questions====
+* Sales and revenue performance
+* Customer purchasing behaviour
+* Product performance
+* Geographic sales patterns
+* Cancellation and return behaviour
+* Customer value using RFM analysis
+* Behavioural customer segments
+* Business KPIs and opportunities
 
-The analysis is guided by five questions:
+The final analytical results are presented through an interactive **Streamlit dashboard**.
 
-What are the major distributions and data-quality characteristics of the retail dataset?
-How do sales and customer behaviour vary across products, countries and time?
-What relationships exist among transaction value, purchase frequency, recency and customer spending?
-Can customers be meaningfully segmented using behavioural characteristics?
-How can statistical and machine-learning visualisations translate analytical results into useful business insights?
+---
 
-====Dataset====
+## Dataset
 
-The project uses the UCI Online Retail Dataset, containing transactional records from a UK-based online retailer.
+The project uses the **UCI Online Retail Dataset**, which contains transactional data from a UK-based online retailer.
 
-Key variables include:
+### Original Variables
 
-Feature	Description
-InvoiceNo	Unique invoice/transaction identifier
-StockCode	Product identifier
-Description	Product description
-Quantity	Quantity purchased
-InvoiceDate	Transaction date and time
-UnitPrice	Price per unit
-CustomerID	Customer identifier
-Country	Customer country
+| Feature       | Description                           |
+| ------------- | ------------------------------------- |
+| `InvoiceNo`   | Unique invoice/transaction identifier |
+| `StockCode`   | Product identifier                    |
+| `Description` | Product description                   |
+| `Quantity`    | Quantity purchased                    |
+| `InvoiceDate` | Transaction date and time             |
+| `UnitPrice`   | Price per unit                        |
+| `CustomerID`  | Customer identifier                   |
+| `Country`     | Customer country                      |
 
-Additional analytical features are engineered during the project, including:
+Additional variables and analytical datasets are created during data cleaning and feature engineering.
 
-Revenue
-Month
-Day of week
-Hour
-Order value
-Customer purchase frequency
-Recency
-Monetary value
-Customer-level behavioural features
+---
 
-====Technology Stack====
+## Project Workflow
 
-Programming
+The project follows the analytical pipeline:
 
-Python
-
-Data Manipulation
-
-Pandas
-NumPy
-
-Data Visualisation
-
-Matplotlib
-Seaborn
-
-Machine Learning
-
-Scikit-learn
-
-Development Environment
-
-Jupyter Notebook
-Git
-GitHub
-
-====Project Methodology====
-
-The project follows a structured analytical workflow:
-
-Raw Transaction Data
+```text
+Raw Online Retail Data
         │
         ▼
-Data Understanding & Profiling
+01. Data Understanding & Profiling
         │
         ▼
-Data Cleaning & Validation
+02. Data Cleaning
         │
         ▼
-Feature Engineering
+03. Feature Engineering
+        │
+        ├── Transaction Features
+        ├── Product Features
+        └── Customer Features
         │
         ▼
-Exploratory Data Analysis
+04. Exploratory Data Analysis
         │
-        ├── Univariate Analysis
-        ├── Bivariate Analysis
-        └── Multivariate Analysis
+        ├── Dataset Validation
+        ├── Numerical Analysis
+        ├── Categorical Analysis
+        ├── Transaction Analysis
+        ├── Customer Analysis
+        ├── Product Analysis
+        ├── Geographic Analysis
+        ├── Temporal Analysis
+        └── Cancellation Analysis
         │
         ▼
-Time-Series Analysis
+05. Customer Segmentation
         │
-        ▼
-RFM Customer Analysis
-        │
-        ▼
-Customer Segmentation
-        │
+        ├── RFM Analysis
         ├── Feature Scaling
         ├── K-Means Clustering
-        └── Cluster Evaluation
+        ├── Cluster Evaluation
+        ├── Cluster Profiling
+        └── PCA Visualisation
         │
         ▼
-PCA Visualisation
+06. Business Insights & KPI Analysis
         │
         ▼
-Machine-Learning Analysis
-        │
-        ▼
-Business Insights & Recommendations
+Interactive Streamlit Dashboard
+```
 
-====Exploratory Data Analysis====
+---
 
-The EDA stage investigates the structure, distribution and relationships within the data.
+# Analytical Notebooks
 
-Univariate Analysis
+## 01 — Data Understanding and Profiling
 
-Techniques include:
+`01_Data_Understanding_and_Profiling.ipynb`
 
-Histograms
-Kernel Density Estimation (KDE)
-Boxplots
-Violin plots
-ECDF plots
-Count plots
-Bar charts
+The first notebook examines the original dataset before transformations are applied.
 
-The analysis examines:
+Key activities include:
 
-Central tendency
-Variability
-Skewness
-Distribution shape
-Potential outliers
-Category frequencies
-Bivariate Analysis
+* Dataset structure inspection
+* Data-type validation
+* Descriptive statistics
+* Cardinality analysis
+* Missing-value analysis
+* Duplicate investigation
+* Business-rule validation
+* Cancellation and return investigation
+* Initial distribution analysis
+* Data-quality assessment
+* Cleaning decisions
 
-Relationships between variables are investigated using:
+The purpose of this stage is to understand the dataset and make evidence-based cleaning decisions.
 
-Scatterplots
-Regression plots
-Boxplots
-Violin plots
-Bar plots
-Joint plots
-Cross-tabulation heatmaps
-Multivariate Analysis
+---
 
-Multiple variables are investigated simultaneously using:
+## 02 — Data Cleaning
 
-Pair plots
-Correlation heatmaps
-Faceted visualisations
-Hue, size and style encoding
-Multidimensional scatterplots
+`02_Data_Cleaning.ipynb`
 
-====Time-Series Analysis====
+This notebook applies the cleaning decisions established during profiling.
 
-Transaction timestamps are used to investigate temporal purchasing behaviour.
+The cleaning process prepares a consistent analytical dataset while avoiding indiscriminate removal of records that may represent legitimate business activity.
 
-Analysis includes:
+---
 
-Daily revenue trends
-Monthly revenue patterns
-Day-of-week behaviour
-Hourly purchasing behaviour
-Rolling averages
-Seasonal patterns
-Peak-period identification
+## 03 — Feature Engineering
 
-====RFM Customer Analysis====
+`03_Feature_Engineering.ipynb`
 
-Customer-level behaviour is analysed using the RFM framework:
+The cleaned transaction data is transformed into analytical features and datasets required for subsequent analysis.
 
-Recency — How recently did the customer purchase?
+The notebook produces three primary datasets:
 
-Frequency — How frequently does the customer purchase?
+### Transaction-Level Dataset
 
-Monetary Value — How much revenue has the customer generated?
+Used for:
 
-The transaction-level dataset is transformed into a customer-level analytical dataset for segmentation and modelling.
+* Sales analysis
+* Revenue analysis
+* Temporal analysis
+* Geographic analysis
+* Cancellation analysis
 
-====Customer Segmentation====
+### Product-Level Dataset
 
-Customer behavioural characteristics are explored using K-Means clustering.
+Used for:
+
+* Product performance
+* Product revenue
+* Product demand
+* Product ranking
+
+### Customer-Level Dataset
+
+Used for:
+
+* Customer behaviour analysis
+* Customer value analysis
+* Purchase frequency analysis
+* Customer segmentation
+
+Engineered variables include transaction, temporal, revenue, customer, and product-level measures.
+
+---
+
+## 04 — Exploratory Data Analysis
+
+`04_Exploratory_Data_Analysis.ipynb`
+
+The EDA notebook systematically investigates patterns within the feature-engineered datasets.
+
+### Dataset Validation
+
+The feature-engineered datasets are validated before analysis by checking:
+
+* Dimensions
+* Column names
+* Data types
+* Missing values
+* Duplicates
+* Date ranges
+* Customer coverage
+* Revenue consistency
+
+### Numerical Analysis
+
+Numerical variables are examined using:
+
+* Descriptive statistics
+* Histograms
+* Density distributions
+* Boxplots
+* Quantiles
+* Skewness
+* Outlier analysis
+
+### Categorical Analysis
+
+Categorical variables are analysed through:
+
+* Frequency distributions
+* Proportional analysis
+* Count plots
+* Comparative bar charts
+
+### Sales Analysis
+
+The analysis investigates:
+
+* Revenue
+* Transaction volumes
+* Order behaviour
+* Quantity sold
+* Purchasing patterns
+
+### Customer Analysis
+
+Customer-level analysis examines:
+
+* Customer spending
+* Purchase frequency
+* Customer activity
+* Customer lifetime behaviour
+* Customer concentration
+
+### Product Analysis
+
+Product analysis examines:
+
+* Product demand
+* Product revenue
+* Best-performing products
+* Product purchasing patterns
+
+### Geographic Analysis
+
+Sales performance is compared across customer countries.
+
+### Temporal Analysis
+
+Transaction timestamps are used to investigate:
+
+* Monthly patterns
+* Day-of-week patterns
+* Hourly purchasing behaviour
+* Revenue trends
+* Transaction trends
+
+### Cancellation Analysis
+
+Cancellation and return behaviour is analysed separately to avoid mixing negative transactions with genuine purchasing activity.
+
+---
+
+# Customer Segmentation
+
+## RFM Analysis
+
+Customer behaviour is analysed using the **RFM framework**:
+
+**Recency** — How recently a customer purchased.
+
+**Frequency** — How frequently a customer purchased.
+
+**Monetary Value** — How much revenue the customer generated.
+
+RFM provides a compact representation of customer purchasing behaviour and supports subsequent customer segmentation.
+
+Customers without valid positive purchasing activity are excluded from the RFM population where appropriate rather than artificially forcing them into purchasing-based segments.
+
+---
+
+## K-Means Customer Segmentation
+
+`05_Customer_Segmentation.ipynb`
+
+Behavioural customer segmentation is performed using **K-Means clustering**.
 
 The workflow includes:
 
-Customer-level feature engineering
-Feature scaling
-Investigation of suitable cluster counts
-K-Means clustering
-Silhouette analysis
-Cluster profiling
-Business interpretation
+1. Customer-level analytical dataset preparation
+2. RFM feature construction
+3. Distribution assessment
+4. Feature transformation where appropriate
+5. Feature scaling
+6. Cluster-number investigation
+7. K-Means clustering
+8. Silhouette evaluation
+9. Cluster profiling
+10. Business interpretation
 
-Cluster characteristics are visualised using scatterplots, boxplots, violin plots and comparative charts.
+The objective is not simply to generate clusters but to understand how groups of customers differ in terms of purchasing behaviour and business value.
 
-====Principal Component Analysis====
+---
 
-Principal Component Analysis (PCA) is used to investigate the lower-dimensional structure of customer behaviour.
+## Principal Component Analysis
 
-Visualisations include:
+**Principal Component Analysis (PCA)** is used to visualise the multidimensional customer segmentation results in a lower-dimensional space.
 
-PC1 vs PC2
-Cluster separation
-Explained variance
-Cumulative explained variance
-Feature loadings
+PCA supports:
 
-====Machine-Learning Visualisation====
+* Cluster visualisation
+* Assessment of cluster separation
+* Dimensionality interpretation
+* Communication of segmentation results
 
-The project also demonstrates visualisation techniques used when evaluating predictive models.
+PCA is used primarily as an analytical and visualisation technique rather than as evidence that the discovered clusters represent objectively existing customer categories.
 
-These include:
+---
 
-Confusion Matrix
-ROC Curve
-Precision-Recall Curve
-Feature Importance
-Learning Curves
-Calibration Curves
+# Business Insights and KPI Analysis
 
-The emphasis is not only on calculating performance metrics, but also on communicating model behaviour clearly.
+`06_Business_Insights_and_KPI_Analysis.ipynb`
 
-====Visualisation Skills Demonstrated ====
+The final analytical notebook translates the outputs from EDA and customer segmentation into business-oriented measures.
 
-Matplotlib
-Figure and Axes architecture
-Line charts
-Scatterplots
-Bar charts
-Histograms
-Boxplots
-Subplots
-Axis formatting
-Tick formatting
-Legends
-Grid lines
-Annotations
-Reference lines
-Logarithmic scales
-Figure layouts
-Publication-quality figure export
-Seaborn
-histplot
-kdeplot
-ecdfplot
-countplot
-barplot
-boxplot
-violinplot
-stripplot
-swarmplot
-pointplot
-scatterplot
-lineplot
-regplot
-heatmap
-pairplot
-jointplot
-relplot
-displot
-catplot
-lmplot
+The analysis brings together findings relating to:
 
-====Repository Structure====
+* Revenue performance
+* Customer performance
+* Product performance
+* Geographic performance
+* Temporal purchasing behaviour
+* Cancellation behaviour
+* Customer segments
+* Customer value
+
+The purpose is to bridge technical analysis and practical business interpretation.
+
+---
+
+# Interactive Streamlit Dashboard
+
+The project includes an interactive **Streamlit analytics application**.
+
+The application entry point is:
+
+```text
+app.py
+```
+
+The dashboard is organised into three navigation areas.
+
+### Overview
+
+* Executive Overview
+
+### Business Analytics
+
+* Sales Analytics
+* Customer Analytics
+* Product Analytics
+* Geographic Analytics
+* Cancellation Analysis
+
+### Data Science
+
+* Customer Segmentation
+
+This structure separates high-level business reporting from detailed analytical and data-science outputs.
+
+---
+
+## Executive Overview
+
+Provides a high-level summary of the most important KPIs and analytical findings.
+
+It is designed to give decision-makers a concise overview before exploring individual analytical areas.
+
+---
+
+## Sales Analytics
+
+Explores:
+
+* Revenue performance
+* Sales trends
+* Transaction activity
+* Temporal sales patterns
+* Purchasing behaviour
+
+---
+
+## Customer Analytics
+
+Explores:
+
+* Customer value
+* Purchase frequency
+* Customer spending
+* Customer activity
+* Customer concentration
+
+---
+
+## Customer Segmentation
+
+Presents the results of:
+
+* RFM analysis
+* K-Means clustering
+* Cluster profiling
+* Segment comparison
+* PCA visualisation
+
+---
+
+## Product Analytics
+
+Investigates:
+
+* Product revenue
+* Product demand
+* Best-performing products
+* Product-level contribution
+
+---
+
+## Geographic Analytics
+
+Investigates:
+
+* Revenue by country
+* Customer distribution
+* Geographic differences in purchasing behaviour
+* International market contribution
+
+---
+
+## Cancellation Analysis
+
+Examines:
+
+* Cancellation activity
+* Returned quantities
+* Negative-value transactions
+* Cancellation patterns
+* Potential business implications
+
+---
+
+# Technology Stack
+
+### Programming
+
+* Python
+
+### Data Manipulation
+
+* Pandas
+* NumPy
+
+### Data Visualisation
+
+* Matplotlib
+* Seaborn
+
+### Statistical Analysis
+
+* SciPy
+
+### Machine Learning
+
+* Scikit-learn
+
+### Interactive Application
+
+* Streamlit
+
+### Development and Version Control
+
+* Jupyter Notebook
+* Visual Studio Code
+* Git
+* GitHub
+
+---
+
+# Repository Structure
+
+```text
 uk-retail-customer-analytics/
 │
+├── app.py
 ├── README.md
 ├── requirements.txt
-├── LICENSE
 ├── .gitignore
 │
-├── data/
-│   ├── raw/
-│   └── processed/
+├── Data/
+│   ├── retail_transaction_features.csv
+│   ├── product_features.csv
+│   └── customer_features.csv
 │
-├── notebooks/
-│   ├── 01_Data_Understanding.ipynb
+├── Notebooks/
+│   ├── 01_Data_Understanding_and_Profiling.ipynb
 │   ├── 02_Data_Cleaning.ipynb
-│   ├── 03_Univariate_Analysis.ipynb
-│   ├── 04_Bivariate_Analysis.ipynb
-│   ├── 05_Multivariate_Analysis.ipynb
-│   ├── 06_Time_Series_Analysis.ipynb
-│   ├── 07_Customer_Segmentation.ipynb
-│   ├── 08_ML_Visualisation.ipynb
-│   └── 09_Business_Insights.ipynb
+│   ├── 03_Feature_Engineering.ipynb
+│   ├── 04_Exploratory_Data_Analysis.ipynb
+│   ├── 05_Customer_Segmentation.ipynb
+│   └── 06_Business_Insights_and_KPI_Analysis.ipynb
 │
-├── src/
-│   ├── preprocessing.py
-│   └── visualization.py
+├── utils/
+│   ├── __init__.py
+│   ├── charts.py
+│   ├── data_loader.py
+│   ├── formatters.py
+│   └── styles.py
 │
-├── figures/
-│   ├── distributions/
-│   ├── relationships/
-│   ├── timeseries/
-│   └── machine_learning/
-│
-├── reports/
-│   └── executive_summary.pdf
-│
-└── cheatsheets/
-    ├── matplotlib_cheatsheet.pdf
-    ├── seaborn_cheatsheet.pdf
-    └── visualization_selection_guide.pdf
+└── views/
+    ├── executive_overview.py
+    ├── sales_analytics.py
+    ├── customer_analytics.py
+    ├── customer_segmentation.py
+    ├── product_analytics.py
+    ├── geographic_analytics.py
+    └── cancellation_analysis.py
+```
 
-====Key Insights====
+---
 
-This section will be updated after completion of the analysis.
+# Streamlit Application Architecture
 
-The final analysis will summarise evidence relating to:
+The dashboard follows a modular structure rather than placing the entire application inside `app.py`.
 
-Revenue and purchasing patterns
-Customer behaviour
-Product performance
-Geographic differences
-Temporal purchasing patterns
-Customer segments
-Important behavioural characteristics
-Potential business opportunities
+```text
+app.py
+   │
+   ├── Navigation
+   │
+   ├── views/
+   │      ├── Executive Overview
+   │      ├── Sales Analytics
+   │      ├── Customer Analytics
+   │      ├── Customer Segmentation
+   │      ├── Product Analytics
+   │      ├── Geographic Analytics
+   │      └── Cancellation Analysis
+   │
+   └── utils/
+          ├── Data Loading
+          ├── Charts
+          ├── Formatting
+          └── Styling
+```
 
-====Featured Visualisations====
+This improves maintainability and separates reusable functionality from individual dashboard pages.
 
-Final portfolio-quality visualisations will be added here as the analysis progresses.
+---
 
-Planned examples include:
+# Installation
 
-Revenue trend analysis
-Customer purchasing distributions
-Product performance rankings
-Correlation heatmap
-RFM customer analysis
-Customer cluster visualisation
-PCA cluster visualisation
-Machine-learning evaluation plots
+Clone the repository:
 
-====Business Value====
+```bash
+git clone <repository-url>
+cd uk-retail-customer-analytics
+```
 
-The project aims to demonstrate how transaction data can support decisions relating to:
+Install the required Python packages:
 
-Customer segmentation
-Customer retention
-Marketing prioritisation
-Product strategy
-Revenue analysis
-Customer engagement
-Resource allocation
-
-Analytical findings will be distinguished from business recommendations so that recommendations remain supported by evidence from the analysis.
-
-====Limitations====
-
-Potential limitations considered during the project include:
-
-Historical data may not represent current retail behaviour.
-Customer identifiers may be missing for some transactions.
-Transactional data provides limited demographic information.
-Observational relationships should not be interpreted as causal effects.
-Customer segments produced through clustering are analytical groupings rather than objectively existing customer categories.
-Predictive performance may not generalise beyond the available dataset without external validation.
-
-====Reproducibility====
-
-The project is designed to be reproducible using the supplied notebooks and dependency information.
-
-Install the required packages using:
-
+```bash
 pip install -r requirements.txt
+```
 
-Then execute the notebooks sequentially from 01_Data_Understanding.ipynb.
+The current dependency file includes:
 
-====Learning Outcomes====
+```text
+streamlit==1.45.1
+pandas
+numpy
+matplotlib
+seaborn
+scipy
+scikit-learn==1.9.0
+openpyxl
+joblib
+```
 
-Through this project I aim to strengthen practical skills in:
+---
 
-Python data analysis
-Exploratory Data Analysis
-Statistical visualisation
-Matplotlib
-Seaborn
-Data storytelling
-Customer analytics
-Feature engineering
-Unsupervised machine learning
-PCA
-Model evaluation
-Business interpretation
-Reproducible data science workflows
+# Running the Streamlit Dashboard
 
-====Project Status====
+From the project root directory:
 
-Status: In Development
+```bash
+streamlit run app.py
+```
 
-Current workflow:
+If Streamlit is installed through a specific Python environment, it can also be launched using:
 
-Data Understanding → Data Cleaning → EDA → Time Series → Customer Segmentation → ML Visualisation → Business Insights
+```bash
+python -m streamlit run app.py
+```
 
-====Author====
+---
 
-Manesh Nimsara Samararathne
+# Reproducing the Analysis
+
+For complete reproduction of the analytical workflow, execute the notebooks sequentially:
+
+```text
+01_Data_Understanding_and_Profiling.ipynb
+                ↓
+02_Data_Cleaning.ipynb
+                ↓
+03_Feature_Engineering.ipynb
+                ↓
+04_Exploratory_Data_Analysis.ipynb
+                ↓
+05_Customer_Segmentation.ipynb
+                ↓
+06_Business_Insights_and_KPI_Analysis.ipynb
+```
+
+The output datasets generated during earlier stages are used by subsequent analytical stages and the Streamlit application.
+
+---
+
+# Visualisation Skills Demonstrated
+
+The project demonstrates practical use of **Matplotlib and Seaborn** for analytical communication.
+
+Techniques include:
+
+* Histograms
+* KDE plots
+* Boxplots
+* Violin plots
+* Bar charts
+* Count plots
+* Scatterplots
+* Line charts
+* Heatmaps
+* Distribution analysis
+* Time-series visualisation
+* Customer-segment comparison
+* PCA cluster visualisation
+* Figure formatting
+* Axis formatting
+* Legends
+* Annotations
+* Multi-variable visualisation
+
+Visualisations are selected according to the analytical question rather than simply to demonstrate chart variety.
+
+---
+
+# Business Value
+
+The project demonstrates how transactional retail data can support decisions relating to:
+
+* Customer segmentation
+* Customer prioritisation
+* Revenue monitoring
+* Product strategy
+* Geographic performance
+* Marketing targeting
+* Customer retention
+* Cancellation management
+* Customer engagement
+* Resource allocation
+
+Analytical findings and business recommendations are distinguished so that recommendations remain grounded in observed evidence.
+
+---
+
+# Limitations
+
+Several limitations should be considered when interpreting the analysis:
+
+* The dataset represents historical transactions and may not reflect current retail behaviour.
+* Transactional information provides limited demographic information about customers.
+* Some customers may contain cancellation or return activity without corresponding valid positive purchasing activity.
+* RFM analysis represents purchasing behaviour but does not capture every dimension of customer value.
+* K-Means requires analytical assumptions about feature preparation and the number of clusters.
+* Customer clusters are analytical groupings and should not be interpreted as objectively existing customer categories.
+* PCA simplifies multidimensional information and therefore does not preserve all information contained in the original features.
+* Observational relationships identified through EDA should not be interpreted as causal relationships.
+* Findings from this dataset should not automatically be generalised to other retailers, markets, or time periods.
+
+---
+
+# Key Skills Demonstrated
+
+This project demonstrates practical experience in:
+
+* Python data analysis
+* Data profiling
+* Data cleaning
+* Data validation
+* Feature engineering
+* Exploratory Data Analysis
+* Statistical analysis
+* Matplotlib
+* Seaborn
+* Customer analytics
+* RFM analysis
+* Unsupervised machine learning
+* K-Means clustering
+* Cluster evaluation
+* Principal Component Analysis
+* Business KPI analysis
+* Data storytelling
+* Streamlit application development
+* Modular Python development
+* Git and GitHub
+* Reproducible analytical workflows
+
+---
+
+# Project Status
+
+**Core analytical development complete.**
+
+Completed components:
+
+* Data understanding and profiling
+* Data cleaning
+* Feature engineering
+* Exploratory Data Analysis
+* RFM customer analysis
+* K-Means customer segmentation
+* PCA visualisation
+* Business KPI analysis
+* Interactive Streamlit dashboard
+* Modular dashboard architecture
+
+Final portfolio activities include application testing, documentation refinement, dashboard screenshots, and deployment.
+
+---
+
+# Author
+
+**Manesh Nimsara Samararathne**
 
 MSc Data Science & Business Analytics
 University of Plymouth
 
-Areas of Interest: Data Science • Data Analytics • Machine Learning • Business Intelligence • Explainable AI
+Areas of interest:
+
+**Data Science • Data Analytics • Machine Learning • Business Intelligence • Explainable AI**
