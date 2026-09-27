@@ -450,6 +450,66 @@ Examines:
 
 ---
 
+# Key Findings
+
+The analysis revealed several important patterns in customer behaviour, sales performance, product demand, geographic activity, and cancellations.
+
+### Sales Performance
+
+* Retail performance varies considerably across transactions and time periods, demonstrating that aggregate revenue alone does not fully explain business performance.
+* Revenue, order activity, quantity sold, and average order value provide complementary perspectives on sales performance.
+* Temporal analysis identifies differences in purchasing activity across months, days of the week, and hours of the day, providing useful context for understanding when customer activity is strongest.
+
+### Customer Behaviour
+
+* Customer value is highly heterogeneous, with substantial differences in spending, purchasing frequency, average order value, product diversity, and activity levels.
+* Revenue is concentrated among higher-value customers rather than being distributed uniformly across the customer base.
+* This concentration highlights the importance of identifying strategically valuable customers rather than treating all customers as equally important.
+
+### RFM and Customer Segmentation
+
+* RFM analysis provides a meaningful behavioural representation of customers based on **Recency, Frequency, and Monetary Value**.
+* Customers without valid positive purchasing activity were excluded from the purchase-based RFM population to avoid assigning misleading behavioural values to cancellation- or return-only activity.
+* K-Means clustering identifies distinct behavioural customer groups with different purchasing characteristics and levels of customer value.
+* The segmentation demonstrates how unsupervised machine learning can convert transaction history into interpretable customer groups that can support differentiated customer-management strategies.
+* PCA provides a lower-dimensional representation of the customer feature space and supports visual interpretation of the resulting clusters.
+
+### Product Performance
+
+* Product performance varies substantially across the catalogue.
+* Products with the highest quantity sold are not necessarily identical to products generating the highest revenue, demonstrating the importance of evaluating both demand and financial contribution.
+* Product-level analysis helps identify commercially important products that may warrant closer monitoring in areas such as inventory, promotion, and product strategy.
+
+### Geographic Performance
+
+* The United Kingdom represents the dominant geographic market in the dataset, which is consistent with the retailer being UK-based.
+* International customers nevertheless contribute additional transactions and revenue across multiple markets.
+* Geographic analysis provides a clearer understanding of the retailer's core market and the contribution of international customers.
+
+### Cancellations and Returns
+
+* Cancellation and return activity represents a distinct component of the transaction history and should be analysed separately from completed purchasing activity.
+* Negative quantities and transaction values associated with cancellations can distort sales, customer, and product metrics if they are interpreted as ordinary purchases.
+* Separating positive purchases from cancellation activity therefore produces a more meaningful view of underlying commercial performance.
+
+### Business Implications
+
+The findings suggest several practical opportunities:
+
+* Prioritise high-value and frequently purchasing customers for retention and relationship-management initiatives.
+* Use behavioural customer segments to support differentiated engagement and marketing strategies.
+* Monitor both product demand and revenue contribution when evaluating product performance.
+* Track customer-value concentration to understand dependence on high-value customers.
+* Analyse temporal purchasing patterns when planning campaigns and operational activity.
+* Monitor geographic performance to distinguish core-market performance from international opportunities.
+* Evaluate cancellation activity alongside gross sales to obtain a more complete view of commercial performance.
+
+Overall, the project demonstrates how raw retail transaction data can be transformed into an integrated analytical framework combining **exploratory analysis, customer analytics, unsupervised machine learning, business KPIs, and interactive visualisation**.
+
+> **Note:** The findings are descriptive and relate to the historical transactions analysed in this project. They identify patterns and potential business opportunities but should not be interpreted as causal relationships.
+
+---
+
 # Technology Stack
 
 ### Programming
